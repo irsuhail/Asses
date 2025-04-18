@@ -1,0 +1,104 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Todo API",
+      "version": "1.0.0",
+      "description": "API for managing Todos"
+    },
+    "paths": {
+      "/todos": {
+        "get": {
+          "summary": "Get all todos",
+          "responses": {
+            "200": {
+              "description": "A list of todos"
+            }
+          }
+        },
+        "post": {
+          "summary": "Create a new todo",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Todo"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "Todo created"
+            }
+          }
+        }
+      },
+      "/todos/{id}": {
+        "get": {
+          "summary": "Get a todo by ID",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": { "type": "string" }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The requested todo"
+            }
+          }
+        },
+        "put": {
+          "summary": "Update a todo",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": { "type": "string" }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Updated todo"
+            }
+          }
+        },
+        "delete": {
+          "summary": "Delete a todo",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": { "type": "string" }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Todo deleted"
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "Todo": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "completed": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    }
+  }
+  
