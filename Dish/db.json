@@ -1,0 +1,33 @@
+[
+    {
+      "id": 1,
+      "name": "Idly",
+      "price": 50,
+      "category": "Breakfast"
+    },
+    {
+      "id": 2,
+      "name": "Masala Dosa",
+      "price": 70,
+      "category": "Breakfast"
+    },
+    {
+      "id": 3,
+      "name": "Veg Biryani",
+      "price": 120,
+      "category": "Lunch"
+    },
+    {
+      "id": 4,
+      "name": "Paneer Butter Masala",
+      "price": 150,
+      "category": "Dinner"
+    },
+    {
+      "id": 5,
+      "name": "Idly Fry",
+      "price": 70,
+      "category": "Breakfast"
+    }
+  ]
+  
