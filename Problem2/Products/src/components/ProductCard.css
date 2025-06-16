@@ -1,0 +1,27 @@
+.card {
+    background: white;
+    padding: 16px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.card img {
+    height:150px;
+    object-fit: contain;
+}
+
+.card h3 {
+    font-size: 16px;
+    margin:10px 0;
+}
+
+.card p {
+    color:green;
+    font-weight: bolder;
+}
+
+.card span {
+    font-size: 12px;
+    color: #666;
+}
