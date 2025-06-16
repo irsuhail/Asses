@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Timer Task Board</title>
+
+        <style>
+            body {
+                font-family: Arial,  sans-serif;
+                margin:20px;
+            }
+
+            input,button {
+                margin: 5px;
+                padding: 5px;
+            }
+
+            ul {
+                list-style: square;
+                padding-left: 20px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>Timer Task Board</h1>
+
+        <div>
+            <label>Task Name: <input type="text" id="taskName"/></label><br/>
+            <label>Delay (ms): <input type="number" id="delay"/></label><br/>
+            <label>Repeat? <input type="checkbox" id="repeat"/></label><br/>
+            <button id="startBtn">Start Task</button>
+        </div>
+        <hr/>
+
+        <h3>Task Log</h3>
+        <ul id="taskLog"></ul>
+
+        <button id="cancelBtn">Cancel All Repeating Tasks </button>
+
+        <script>
+            let taskNameInput=document.getElementById('taskName');
+            let delayInput=document.getElementById('delay');
+            let repeatInput=document.getElementById('repeat');
+            let startBtn=document.getElementById('startBtn');
+            let cancelBtn=document.getElementById('cancelBtn');
+            let taskLog=document.getElementById('taskLog');
+
+            const intervalIDs=[];
+
+            function getCurrentTime() {
+                let now=new Date();
+                return
+                now.toLocaleTimeString();
+            }
+
+            function logTask(taskName) {
+                const li=document.createElement('li');
+                li.textContent=`Task "${taskName}" executed at $ {getCurrentTime()}`;
+                taskLog.appendChild(li);
+            }
+
+            startBtn.addEventListener('click',()=>{
+                const name=taskNameInput.value.trim();
+                const delay=parseInt(delayInput.value);
+                const repeat=repeatInput.checked;
+
+                if (!name || isNaN(delay) || delay<0) {
+                    alert ('Please enter a valid task name and delay (ms).');
+                    return ;
+                }
+
+                if (repeat) {
+                    const intervalId=setInterval(()=>{
+                        logTask(name);
+                    },delay);
+
+                    intervalIDs.push(intervalId);
+                } else {
+                    setTimeout(()=>{
+                        logTask(name);
+                    },delay);
+                }
+
+
+                taskNameInput.value='';
+                delayInput.value='';
+                repeatInput.checked=false;
+            });
+
+
+            cancelBtn.addEventListener('click',()=>{
+                intervalIDs.forEach(id=> clearInterval(id));
+                intervalIDs.length=0;
+                alert('All repeating tasks cancelled');
+            });
+
+
+        </script>
+    </body>
+</html>
