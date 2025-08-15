@@ -1,0 +1,40 @@
+.container {
+  max-width: 600px;
+  margin: auto;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.item-list {
+  list-style: none;
+  padding: 0;
+}
+
+.item-list li {
+  background: #f4f4f4;
+  margin: 5px 0;
+  padding: 10px;
+}
+
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.pagination button {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+}
+
+.pagination button.active {
+  background: #007bff;
+  color: white;
+}
+
+.pagination select {
+  padding: 5px;
+}
