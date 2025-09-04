@@ -1,0 +1,41 @@
+.feedback-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.stars {
+  display: flex;
+  gap: 6px;
+}
+
+.star {
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  fill: lightgray;
+  transition: fill 0.2s;
+}
+
+.star.filled {
+  fill: gold;
+}
+
+.rating-text {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.clear-btn {
+  padding: 6px 12px;
+  border: 1px solid #999;
+  background: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.clear-btn:hover {
+  background: #f0f0f0;
+}
