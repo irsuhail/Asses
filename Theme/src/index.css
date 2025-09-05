@@ -1,0 +1,23 @@
+:root {
+  --bg-color: white;
+  --text-color: black;
+}
+
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: white;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: sans-serif;
+  transition: all 0.3s ease;
+}
+
+.app {
+  text-align: center;
+  padding: 2rem;
+}
