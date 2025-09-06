@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Navbar</title>
+  <style>
+  
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    
+    nav {
+      background: #333;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+    }
+
+   
+    .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-links li {
+      margin-left: 20px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #ff9800;
+    }
+
+    
+    .menu-btn {
+      display: none;
+      font-size: 1.8em;
+      cursor: pointer;
+    }
+
+    
+    #menu-toggle {
+      display: none;
+    }
+
+   
+    @media (max-width: 768px) {
+      .nav-links {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: #333;
+        flex-direction: column;
+        width: 200px;
+        display: none;
+      }
+
+      .nav-links li {
+        margin: 15px 0;
+        text-align: center;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      
+      #menu-toggle:checked ~ .nav-links {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">MySite</div>
+
+    
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-btn">&#9776;</label>
+
+   
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+</body>
+</html>
